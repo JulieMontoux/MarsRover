@@ -2,12 +2,12 @@ import abc
 from etat_rover import EtatRover
 
 class Rover:
-    DIRECTIONS = ['N', 'E', 'S', 'W']
+    DIRECTIONS = ['N', 'E', 'S', 'O']
     MOVEMENTS = {
         'N': (0, -1),
         'E': (1, 0),
         'S': (0, 1),
-        'W': (-1, 0)
+        'O': (-1, 0)
     }
 
     def __init__(self, x, y, orientation, planete):
