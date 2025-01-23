@@ -1,6 +1,6 @@
 import unittest
-from rover import Rover
-from etat_rover import EtatRover
+from src.rover import Rover
+from src.etat_rover import EtatRover
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
