@@ -1,17 +1,12 @@
 from enum import Enum
 
+# Fournit des services statiques pour gérer les orientations du rover.
+# Inclut les calculs de rotation (gauche/droite) et les deltas associés pour le déplacement en fonction de la direction actuelle.
 class Direction(Enum):
     N = 'N'
     E = 'E'
     S = 'S'
     W = 'W'
-
-    MOUVEMENTS = {
-        N: (0, -1),
-        E: (1, 0),
-        S: (0, 1),
-        W: (-1, 0)
-    }
 
     @staticmethod
     def tourner_a_gauche(direction):
@@ -26,7 +21,11 @@ class Direction(Enum):
         return directions[(index + 1) % len(directions)]
 
     @staticmethod
-    def get_movement(direction):
-        if not isinstance(direction, Direction):
-            raise TypeError(f"direction doit être une instance de Direction, mais a reçu {type(direction)}.")
-        return Direction.MOUVEMENTS[direction.value]
+    def get_delta(direction):
+        deltas = {
+            Direction.N: (0, -1),
+            Direction.E: (1, 0),
+            Direction.S: (0, 1),
+            Direction.W: (-1, 0),
+        }
+        return deltas[direction]

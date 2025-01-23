@@ -12,6 +12,7 @@ def main():
     print(" - 'R' : reculer")
     print(" - 'G' : tourner à gauche")
     print(" - 'D' : tourner à droite")
+    print(" - 'S' : entrer une séquence de commandes")
     print(" - 'Q' : quitter")
 
     while True:

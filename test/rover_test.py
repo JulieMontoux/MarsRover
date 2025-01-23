@@ -1,11 +1,9 @@
 import unittest
 import sys
 import os
-
-# Ajouter src au chemin des modules Python
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
 from src.rover import Rover
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 class TestRover(unittest.TestCase):
 
