@@ -2,7 +2,9 @@ from src.rover import Rover
 
 def main():
     planete = (10, 10)
-    rover = Rover(5, 5, 'N', planete)
+    obstacles = [(3, 3), (5, 5), (7, 7)]
+    rover = Rover(5, 5, 'N', planete, obstacles)
+
 
     print("Aujourd'hui vous êtes au contrôle de Rover !")
     print("Commandes :")
@@ -15,19 +17,18 @@ def main():
     while True:
         commande = input("Entrez une commande : ").upper()
 
-        if commande == 'A':
-            rover.avancer()
-        elif commande == 'R':
-            rover.reculer()
-        elif commande == 'G':
-            rover.tourner_a_gauche()
-        elif commande == 'D':
-            rover.tourner_a_droite()
+        if commande in ['A', 'R']:
+            rover.deplacer(commande)
+        elif commande in ['G', 'D']:
+            rover.tourner(commande)
+        elif commande == 'S':
+            sequence = input("Entrez une séquence de commandes : ").upper()
+            rover.executer_commandes(sequence)
         elif commande == 'Q':
-            print("Au bientôt sur mars !")
+            print("On se revoit bientôt sur Mars !")
             break
         else:
-            print("Commande invalide. Réessayer.")
+            print("Commande invalide. Veuillez réessayer.")
             continue
 
         print(rover.get_position())
