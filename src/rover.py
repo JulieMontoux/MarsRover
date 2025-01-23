@@ -16,9 +16,9 @@ class Rover:
         elif self.orientation == Direction.S:
             dy = -1 if mouvement == 'A' else 1
         elif self.orientation == Direction.E:
-            dx = -1 if mouvement == 'A' else 1
-        elif self.orientation == Direction.W:
             dx = 1 if mouvement == 'A' else -1
+        elif self.orientation == Direction.W:
+            dx = -1 if mouvement == 'A' else 1
 
         nouvelle_position = Position(
         (self.position.x + dx) % self.planete[0],
