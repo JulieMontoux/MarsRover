@@ -54,5 +54,12 @@ class TestRover(unittest.TestCase):
         self.rover.avancer()
         self.assertEqual(self.rover.get_position(), "Position: (0, 0), Orientation: N")
 
+    def test_rover_obstacle(self):
+        planete = (10, 10)
+        obstacles = [(5, 4)]
+        rover = Rover(5, 5, 'N', planete, obstacles)
+        rover.deplacer('A')
+        self.assertIn("Obstacle détecté", rover.get_position())
+
 if __name__ == '__main__':
     unittest.main()
