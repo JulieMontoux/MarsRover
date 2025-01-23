@@ -1,31 +1,22 @@
-from etat_rover import EtatRover
-from direction import Direction
-from mouvement import Mouvement
+from .etat_rover import EtatRover
+from .direction import Direction
 
 class Rover:
     def __init__(self, x, y, orientation, planete):
-        self.position = EtatRover(x, y, Direction(orientation))
-        self.planete = planete 
+        self.position = EtatRover(x, y, Direction[orientation])
+        self.planete = planete
 
     def avancer(self):
-        dx, dy = Mouvement[self.position.orientation.value].value
-        self.position.x = (self.position.x + dx) % self.planete[0]
-        self.position.y = (self.position.y + dy) % self.planete[1]
+        self.position.avancer(self.planete)
 
     def reculer(self):
-        dx, dy = Mouvement[self.position.orientation.value].value
-        self.position.x = (self.position.x - dx) % self.planete[0]
-        self.position.y = (self.position.y - dy) % self.planete[1]
+        self.position.reculer(self.planete)
 
     def tourner_a_gauche(self):
-        directions = list(Direction)
-        index = directions.index(self.position.orientation)
-        self.position.orientation = directions[(index - 1) % len(directions)]
+        self.position.tourner_a_gauche()
 
     def tourner_a_droite(self):
-        directions = list(Direction)
-        index = directions.index(self.position.orientation)
-        self.position.orientation = directions[(index + 1) % len(directions)]
+        self.position.tourner_a_droite()
 
     def get_position(self):
-        return f"Position: ({self.position.x}, {self.position.y}), Orientation: {self.position.orientation.value}"
+        return self.position.get_position()
