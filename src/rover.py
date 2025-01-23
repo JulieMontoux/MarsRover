@@ -1,22 +1,27 @@
-from .etat_rover import EtatRover
-from .obstacle import Obstacle
+from src.etat_rover import EtatRover
+from src.obstacle import ObstacleFixe
+from src.position import Position
+from src.direction import Direction
 
 # Sert d'orchestrateur principal pour les interactions avec le rover.
 # Cette classe délègue les responsabilités spécifiques à EtatRover (déplacement, rotation) et Obstacle (détection), tout en exposant une interface utilisateur claire.
 class Rover:
     def __init__(self, x, y, orientation, planete, obstacles=None):
-        self.etat = EtatRover(x, y, orientation)
+        self.etat = EtatRover(Position(x, y), Direction[orientation])
         self.planete = planete
-        self.obstacles = Obstacle(obstacles if obstacles else [])
+        self.obstacles = ObstacleFixe(obstacles if obstacles else [])
 
     def deplacer(self, mouvement):
-        self.etat.deplacer(mouvement, self.planete)
-        _x, _y = self.etat.position.get_coords()
-        print(self.obstacles.detecter(self.etat.position))
+        nouvel_etat = self.etat.deplacer(mouvement, self.planete)
+        detection = self.obstacles.detecter(nouvel_etat._position)
+        if "Obstacle détecté" in detection:
+            print(detection)
+            return
+        self.etat = nouvel_etat
 
     def tourner(self, direction):
-        self.etat.tourner(direction)
-    
+        self.etat = self.etat.tourner(direction)
+
     def executer_commandes(self, commandes):
         for commande in commandes:
             if commande in ['A', 'R']:

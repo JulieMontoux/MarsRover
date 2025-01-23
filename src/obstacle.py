@@ -1,6 +1,13 @@
-# Représente une entité métier gérant les positions des obstacles sur la planète.
-# Cette classe offre un service pour détecter si une position donnée est occupée.
-class Obstacle:
+from abc import ABC, abstractmethod
+
+# Interface pour les obstacles.
+class ObstacleBase(ABC):
+    @abstractmethod
+    def detecter(self, position):
+        pass
+
+# Représente des obstacles fixes sur une planète.
+class ObstacleFixe(ObstacleBase):
     def __init__(self, positions):
         self.positions = set(positions)
 
