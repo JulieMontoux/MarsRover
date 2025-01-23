@@ -1,5 +1,5 @@
 ## from models.direction import Direction
-from direction import Direction
+from .direction import Direction
 
 class EtatRover:
     def __init__(self, x, y, orientation: Direction):

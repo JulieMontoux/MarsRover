@@ -1,6 +1,6 @@
-from src.etat_rover import EtatRover
-from direction import Direction
-from mouvement import Mouvement
+from .etat_rover import EtatRover
+from .direction import Direction
+from .mouvement import Mouvement
 
 class Rover:
     def __init__(self, x, y, orientation, planete):
