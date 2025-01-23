@@ -12,12 +12,14 @@ class Rover:
         self.obstacles = ObstacleFixe(obstacles if obstacles else [])
 
     def deplacer(self, mouvement):
-        nouvel_etat = self.etat.deplacer(mouvement, self.planete)
-        detection = self.obstacles.detecter(nouvel_etat._position)
+        nouvel_etat = self.etat.deplacer(mouvement, self.planete)  # Nouvelle position calculée
+        detection = self.obstacles.detecter(nouvel_etat._position)  # Vérifie la nouvelle position
         if "Obstacle détecté" in detection:
-            print(detection)
-            return
-        self.etat = nouvel_etat
+            print(detection)  # Affiche le message d'obstacle
+            return detection  # Retourne le message et n'avance pas
+        self.etat = nouvel_etat  # Met à jour l'état si aucun obstacle
+        return "Déplacement effectué avec succès."  # Retourne un message de succès
+
 
     def tourner(self, direction):
         self.etat = self.etat.tourner(direction)

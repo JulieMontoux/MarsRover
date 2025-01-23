@@ -12,7 +12,7 @@ class Direction(Enum):
     def tourner_a_gauche(direction):
         directions = [Direction.N, Direction.W, Direction.S, Direction.E]
         index = directions.index(direction)
-        return directions[(index - 1) % len(directions)]
+        return directions[(index + 1) % len(directions)]
 
     @staticmethod
     def tourner_a_droite(direction):
