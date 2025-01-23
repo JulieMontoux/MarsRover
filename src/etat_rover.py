@@ -1,7 +1,8 @@
-import abc
+## from models.direction import Direction
+from direction import Direction
 
 class EtatRover:
-    def __init__(self, x, y, orientation):
+    def __init__(self, x, y, orientation: Direction):
         self.x = x
         self.y = y
         self.orientation = orientation
