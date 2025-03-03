@@ -1,4 +1,4 @@
-from src.rover import Rover
+from src.Rover.rover import Rover
 
 def main():
     planete = (10, 10)

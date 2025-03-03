@@ -1,6 +1,6 @@
 import unittest
 from src.obstacle import ObstacleFixe
-from src.position import Position
+from Rover.position import Position
 
 class TestObstacleFixe(unittest.TestCase):
     def test_detection_obstacle(self):

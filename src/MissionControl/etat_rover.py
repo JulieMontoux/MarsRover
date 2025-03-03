@@ -1,5 +1,5 @@
 from .direction import Direction
-from .position import Position
+from src.Rover.position import Position
 
 # Représente une entité composite combinant la position et l'orientation du rover.
 # Cette classe centralise les déplacements et rotations pour éviter que la logique soit dispersée dans plusieurs classes.

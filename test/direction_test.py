@@ -1,5 +1,5 @@
 import unittest
-from src.direction import Direction
+from src.MissionControl.direction import Direction
 
 class TestDirection(unittest.TestCase):
 

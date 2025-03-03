@@ -1,7 +1,7 @@
 import unittest
 import sys
 import os
-from src.rover import Rover
+from src.Rover.rover import Rover
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 class TestRover(unittest.TestCase):

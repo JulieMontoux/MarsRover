@@ -1,7 +1,7 @@
 import unittest
-from src.etat_rover import EtatRover
-from src.position import Position
-from src.direction import Direction
+from src.MissionControl.etat_rover import EtatRover
+from Rover.position import Position
+from src.MissionControl.direction import Direction
 
 class TestEtatRover(unittest.TestCase):
     def test_deplacer_avancer(self):

@@ -1,7 +1,7 @@
-from src.etat_rover import EtatRover
+from src.MissionControl.etat_rover import EtatRover
 from src.obstacle import ObstacleFixe
-from src.position import Position
-from src.direction import Direction
+from src.Rover.position import Position
+from src.MissionControl.direction import Direction
 
 # Sert d'orchestrateur principal pour les interactions avec le rover.
 # Cette classe délègue les responsabilités spécifiques à EtatRover (déplacement, rotation) et Obstacle (détection), tout en exposant une interface utilisateur claire.
