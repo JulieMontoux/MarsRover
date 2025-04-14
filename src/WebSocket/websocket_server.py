@@ -1,7 +1,11 @@
 import asyncio
 import websockets
 import json
-from src.Rover.rover import Rover
+from Rover.rover import Rover
+
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 planete = (10, 10)
 obstacles = [(3, 3), (5, 5), (7, 7)]
