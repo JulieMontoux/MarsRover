@@ -6,7 +6,14 @@ Paul Carion, Mathieu Gaisnon, Yassin Farassi, Nicolas Daunac, Baptiste Mancel et
 
 1.0.0 : Interaction CMD + renvoie de la position et de l'orientation
 
+## 🧭 Schéma de l'architecture logicielle
+
+![Schéma de dépendances WebSocket](./docs/Schema%20de%20dépendances%20WebSocket.png)
+
+*Ce schéma illustre les relations entre les modules principaux du projet : Rover, Mission Control, Communication et WebSocket.*
+
 ### **État d'avancement du projet MarsRover**
+
 | **Fonctionnalité**                                      | **Statut**        | **Détails** |
 |---------------------------------------------------------|-------------------|-------------|
 | **Initialisation du Rover**                            | ✅ Fait            | Le rover est bien initialisé avec une position `(x, y)` et une orientation (`N, S, E, W`). |
@@ -23,6 +30,7 @@ Paul Carion, Mathieu Gaisnon, Yassin Farassi, Nicolas Daunac, Baptiste Mancel et
 | **Communication réseau (Rover Distribué)**             | ❌ Non fait        | Le rover fonctionne uniquement en local. Ajouter une **WebSocket** ou une **API** permettrait de lui envoyer des commandes à distance. |
 
 ### **Prochaines étapes**
+
 1. **Corriger la gestion des obstacles** pour empêcher le rover de bouger s’il rencontre un obstacle.
 2. **Ajouter une carte ASCII dynamique** affichant la position du rover et des obstacles.
 3. **Améliorer les tests unitaires** en ajoutant des cas limites (ex: bords, obstacles, commandes invalides).
