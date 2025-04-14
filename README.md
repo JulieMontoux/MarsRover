@@ -71,6 +71,5 @@ Clique sur "Connect", puis envoie des messages dans la console.
 
 ### **Prochaines étapes**
 
-1. **Corriger la gestion des obstacles** pour empêcher le rover de bouger s’il rencontre un obstacle.
-2. **Améliorer les tests unitaires** en ajoutant des cas limites (ex: bords, obstacles, commandes invalides).
-3. **Créer un mode "exploration"** où les obstacles ne sont découverts qu’au fur et à mesure.
+1. **Améliorer les tests unitaires** en ajoutant des cas limites (ex: bords, obstacles, commandes invalides).
+2. **Créer un mode "exploration"** où les obstacles ne sont découverts qu’au fur et à mesure.
