@@ -2,6 +2,46 @@
 
 Paul Carion, Mathieu Gaisnon, Yassin Farassi, Nicolas Daunac, Baptiste Mancel et Julie Montoux
 
+## Lancement
+
+Pour lancer le projet via les WebSockets il faut :
+
+```bash
+python main.py
+```
+
+Cette commande lancera l'ensemble du projet ainsi que le server du websocket.
+
+Une fois lancé vous avez trois options:
+
+### Le client Python
+
+```bash
+python3 src/WebSocket/client_test.py
+```
+
+C’est la meilleure solution pour tester dans le terminal.
+
+### Un outil spécialisé comme WebSocket King
+
+Ouvre <https://websocketking.com>
+
+- Dans le champ URL, tape : *ws://localhost:8765*
+- Clique sur "Connect"
+
+Une fois connecté, tu peux envoyer A, G, POSITION…
+
+⚠️ Il faut que le serveur WebSocket (main.py) tourne avant et que le navigateur autorise le localhost.
+
+### Postman
+
+Onglet "New"
+
+Type "WebSocket Request"
+
+Adresse : *ws://localhost:8765*
+Clique sur "Connect", puis envoie des messages dans la console.
+
 ## Versionning
 
 1.0.0 : Interaction CMD + renvoie de la position et de l'orientation
@@ -27,11 +67,10 @@ Paul Carion, Mathieu Gaisnon, Yassin Farassi, Nicolas Daunac, Baptiste Mancel et
 | **Affichage visuel de la carte en console**            | ✅ Fait        | Il y a **une grille ASCII** affichant la position du rover et des obstacles. |
 | **Tests unitaires avancés (cas limites, entrées invalides)** | ❌ Non fait        | Il manque des tests pour les **commandes invalides, bords de la grille, et obstacles multiples**. |
 | **Gestion dynamique des obstacles (mode découverte)**  | ❌ Non fait        | Les obstacles sont fixes et connus dès le début. Un mode où ils sont **découverts progressivement** pourrait être ajouté. |
-| **Communication réseau (Rover Distribué)**             | ❌ Non fait        | Le rover fonctionne uniquement en local. Ajouter une **WebSocket** ou une **API** permettrait de lui envoyer des commandes à distance. |
+| **Communication réseau (Rover Distribué)**             | ✅ Fait         | Le rover fonctionne via une **WebSocket** permettrait de lui envoyer des commandes à distance. |
 
 ### **Prochaines étapes**
 
 1. **Corriger la gestion des obstacles** pour empêcher le rover de bouger s’il rencontre un obstacle.
 2. **Améliorer les tests unitaires** en ajoutant des cas limites (ex: bords, obstacles, commandes invalides).
 3. **Créer un mode "exploration"** où les obstacles ne sont découverts qu’au fur et à mesure.
-4. **Ajouter une communication réseau** via **WebSocket** ou **API REST** pour permettre l’envoi de commandes à distance.

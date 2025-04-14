@@ -22,7 +22,7 @@ def main():
     rover = Rover(5, 5, 'N', planete, obstacles)
 
     print("🚀 Bienvenue sur Mars ! Vous êtes au contrôle du Rover.")
-    print("Commandes : A = avancer | R = reculer | G = gauche | D = droite | S = séquence | Q = quitter")
+    print("Commandes : A = avancer | R = reculer | G = gauche | D = droite | Q = quitter")
 
     while True:
         try:
@@ -31,9 +31,6 @@ def main():
             if commande == 'Q':
                 print("👋 Fin de mission. Au revoir depuis Mars !")
                 break
-            elif commande == 'S':
-                sequence = input("Séquence de commandes : ").strip().upper()
-                rover.executer_commandes(sequence)
             elif commande in ['A', 'R']:
                 rover.deplacer(commande)
             elif commande in ['G', 'D']:
