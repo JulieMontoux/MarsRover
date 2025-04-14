@@ -36,3 +36,17 @@ class Rover:
     def get_position(self):
         x, y, orientation = self.etat.get_position()
         return f"Position: ({x}, {y}), Orientation: {orientation}"
+    
+    def afficher_carte(self):
+        x_rover, y_rover, _ = self.etat.get_position()
+        grille = [['.' for _ in range(self.planete[0])] for _ in range(self.planete[1])]
+
+        for ox, oy in self.obstacles.positions:
+            grille[oy][ox] = 'X'
+
+        grille[y_rover][x_rover] = 'R'
+
+        print("\n=== Carte de Mars ===")
+        for row in reversed(grille):
+            print(" ".join(row))
+        print("=====================\n")

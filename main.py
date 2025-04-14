@@ -33,6 +33,7 @@ def main():
             continue
 
         print(rover.get_position())
+        rover.afficher_carte()
 
 if __name__ == "__main__":
     main()
