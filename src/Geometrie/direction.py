@@ -1,7 +1,5 @@
 from enum import Enum
 
-# Fournit des services statiques pour gérer les orientations du rover.
-# Inclut les calculs de rotation (gauche/droite) et les deltas associés pour le déplacement en fonction de la direction actuelle.
 class Direction(Enum):
     N = 'N'
     E = 'E'

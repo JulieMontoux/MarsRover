@@ -1,5 +1,5 @@
 import unittest
-from src.obstacle import ObstacleFixe
+from obstacle.obstacle import ObstacleFixe
 from Geometrie.position import Position
 
 class TestObstacleFixe(unittest.TestCase):

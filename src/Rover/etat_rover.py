@@ -1,8 +1,6 @@
 from Geometrie.direction import Direction
 from Geometrie.position import Position
 
-# Représente une entité composite combinant la position et l'orientation du rover.
-# Cette classe centralise les déplacements et rotations pour éviter que la logique soit dispersée dans plusieurs classes.
 class EtatRover:
     def __init__(self, position, orientation):
         self._position = position
