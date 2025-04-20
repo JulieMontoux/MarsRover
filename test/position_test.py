@@ -1,5 +1,5 @@
 import unittest
-from Rover.position import Position
+from Geometrie.position import Position
 
 class TestPosition(unittest.TestCase):
     def test_deplacer_simple(self):

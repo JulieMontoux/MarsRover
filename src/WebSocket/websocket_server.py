@@ -1,6 +1,7 @@
 import asyncio
 import websockets
 from Rover.rover import Rover
+from Communication.protocole import ProtocoleCommunication
 
 planete = (10, 10)
 obstacles = [(3, 3), (5, 5), (7, 7)]
@@ -11,17 +12,20 @@ async def handle_connection(websocket):
     await websocket.send("Connexion établie avec le rover.")
 
     async for message in websocket:
-        message = message.strip().upper()
-        print(f"🎮 Commande reçue via WebSocket : {message}")
+        type_commande, contenu = ProtocoleCommunication.parser_message(message)
 
-        if message == "POSITION":
-            await websocket.send(rover.get_position())
-        elif set(message).issubset({'A', 'R', 'G', 'D'}):
-            rover.executer_commandes(message)
-            await websocket.send(rover.get_position())
-            rover.afficher_carte()  # ✅ affiche la carte dans le terminal serveur
+        if type_commande == "position":
+            position = rover.get_position()
+            await websocket.send(ProtocoleCommunication.formater_reponse(position))
+
+        elif type_commande == "mouvement":
+            rover.executer_commandes(contenu)
+            position = rover.get_position()
+            await websocket.send(ProtocoleCommunication.formater_reponse(position))
+            rover.afficher_carte()
+
         else:
-            await websocket.send(f"Commande invalide : {message}")
+            await websocket.send("❌ Commande invalide. Essayez : A, R, G, D, ou POSITION.")
 
 
 async def start_websocket_server():
