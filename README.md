@@ -62,6 +62,8 @@ Module Rover :
 Module WebSocket : 
 - Ce module va venir gérer le serveur WebSocket. Pour chaque message recu, il va envoyer la commande au Rover ainsi que renvoyer une réponse au client avec l'emplcaement du rover sur la carte
 
+Module MissionControl : 
+- Il vient initailiser le rover à une postion, il vient également interpreter et executer les commandes ainsi que récuperer la position du rover et l'afficher sur la carte
 
 ### **État d'avancement du projet MarsRover**
 
