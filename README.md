@@ -51,6 +51,7 @@ Clique sur "Connect", puis envoie des messages dans la console.
 ![Schéma de dépendances WebSocket](./docs/schema%20archi.png)
 
 *Ce schéma illustre les relations entre les modules principaux du projet : Rover, Mission Control, Communication et WebSocket.*
+
 Nous avons donc changer notre schema pour accueillir un module qui va venir gérer la position et l'orientation : Géométrie. Ces deux vont gérer les orientations cardinales et 
 la postion x et y du rover sur la planète
 
@@ -64,6 +65,9 @@ Module WebSocket :
 
 Module MissionControl : 
 - Il vient initailiser le rover à une postion, il vient également interpreter et executer les commandes ainsi que récuperer la position du rover et l'afficher sur la carte
+
+
+
 
 ### **État d'avancement du projet MarsRover**
 
