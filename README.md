@@ -48,7 +48,7 @@ Clique sur "Connect", puis envoie des messages dans la console.
 
 ## 🧭 Schéma de l'architecture logicielle
 
-![Schéma de dépendances WebSocket](./docs/Schema%20de%20dépendances%20WebSocket.png)
+![Schéma de dépendances WebSocket](./docs/schema%20architecture%202.png)
 
 *Ce schéma illustre les relations entre les modules principaux du projet : Rover, Mission Control, Communication et WebSocket.*
 

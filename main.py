@@ -2,27 +2,27 @@ import asyncio
 import threading
 import sys
 import os
-
-sys.path.append(os.path.abspath("src"))
-
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+                
 from WebSocket.websocket_server import start_websocket_server
-from Rover.rover import Rover
+from MissionControl.missionControl import MissionControl
 
 def lancer_websocket():
     print("🔧 Démarrage du serveur WebSocket...")
     asyncio.run(start_websocket_server())
 
 def main():
-    # Lancer le WebSocket dans un thread indépendant
+    # Lancer le serveur WebSocket dans un thread parallèle
     websocket_thread = threading.Thread(target=lancer_websocket, daemon=True)
     websocket_thread.start()
 
+    # Initialisation de la mission (Rover + Planète + Obstacles)
     planete = (10, 10)
     obstacles = [(3, 3), (5, 5), (7, 7)]
-    rover = Rover(5, 5, 'N', planete, obstacles)
+    mission = MissionControl(planete, obstacles)
 
     print("🚀 Bienvenue sur Mars ! Vous êtes au contrôle du Rover.")
-    print("Commandes : A = avancer | R = reculer | G = gauche | D = droite | Q = quitter")
+    print("Commandes : A = avancer | R = reculer | G = gauche | D = droite | POSITION = état actuel | Q = quitter")
 
     while True:
         try:
@@ -31,16 +31,14 @@ def main():
             if commande == 'Q':
                 print("👋 Fin de mission. Au revoir depuis Mars !")
                 break
-            elif commande in ['A', 'R']:
-                rover.deplacer(commande)
-            elif commande in ['G', 'D']:
-                rover.tourner(commande)
+            elif commande == "POSITION":
+                print("📍 Position actuelle :", mission.get_position())
+            elif commande in ['A', 'R', 'G', 'D']:
+                mission.executer_commande(commande)
+                print("📍 Nouvelle position :", mission.get_position())
+                mission.afficher_carte()
             else:
-                print("❌ Commande invalide.")
-                continue
-
-            print("📍 Position actuelle :", rover.get_position())
-            rover.afficher_carte()
+                print("❌ Commande invalide. Essayez A, R, G, D, POSITION ou Q.")
 
         except KeyboardInterrupt:
             print("\n🔌 Interruption manuelle. Arrêt du rover.")

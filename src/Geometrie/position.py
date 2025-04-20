@@ -1,5 +1,3 @@
-# Représente une entité gérant les coordonnées du rover sur la planète.
-# Cette classe est utilisée pour encapsuler la logique de gestion des positions et garantir la cohérence des calculs liés au déplacement.
 class Position:
     def __init__(self, x, y):
         self._x = x
@@ -15,4 +13,3 @@ class Position:
 
     def __repr__(self):
         return f"Position(x={self._x}, y={self._y})"
-
